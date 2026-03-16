@@ -18,15 +18,15 @@ https://github.com/aarya25dh/EduTrack-Student-Management-System
 
 # ✨ Features
 
-- ✅ User Registration & Login  
-- ✅ Dashboard Interface  
-- ✅ Add Student  
-- ✅ View Students  
-- ✅ Edit Student Information  
-- ✅ Delete Student Records  
-- ✅ Notification System  
-- ✅ Admin Profile Page  
-- ✅ Session-Based Authentication  
+- ✅ User Registration & Login
+- ✅ Dashboard Interface
+- ✅ Add Student
+- ✅ View Students
+- ✅ Edit Student Information
+- ✅ Delete Student Records
+- ✅ Notification System
+- ✅ Admin Profile Page
+- ✅ Session-Based Authentication
 
 ---
 
@@ -50,23 +50,36 @@ https://github.com/aarya25dh/EduTrack-Student-Management-System
 ```
 EduTrack-Student-Management-System
 │
-├── css/
-├── images/
-├── includes/
-│   └── db_connect.php
-│
-├── index.php
-├── login.php
-├── register.php
-├── dashboard.php
 ├── add_student.php
-├── view_students.php
-├── edit_student.php
+├── auth_check.php
+├── dashboard.php
+├── db_connect.php
 ├── delete_student.php
+├── delete_success.php
+├── edit_student.php
+├── insert_student.php
+├── login.php
+├── login_process.php
+├── logout.php
 ├── notifications.php
 ├── profile.php
+├── register.php
+├── register_process.php
+├── students.php
+├── update_student.php
 │
-├── database.sql
+├── index.html
+├── style.css
+│
+├── logo.png
+├── fb.jpg
+├── insta.avif
+├── linkedin.png
+├── git.png
+├── School.jpg
+│
+├── setup_database.sql
+├── .gitignore
 └── README.md
 ```
 
@@ -79,6 +92,8 @@ EduTrack-Student-Management-System
 ```bash
 git clone https://github.com/aarya25dh/EduTrack-Student-Management-System.git
 ```
+
+---
 
 ## 2️⃣ Open in Local Server
 
@@ -98,10 +113,10 @@ edutrack_db
 
 ## 4️⃣ Import Database
 
-Import the provided file:
+Import the provided SQL file:
 
 ```
-database.sql
+setup_database.sql
 ```
 
 ---
@@ -120,20 +135,20 @@ http://localhost/EduTrack-Student-Management-System
 
 This project demonstrates:
 
-- 📌 CRUD operations using PHP & MySQL  
-- 📌 Session-based authentication  
-- 📌 Multi-page dashboard design  
-- 📌 Client-side & server-side validation  
-- 📌 Basic relational database design  
+- 📌 CRUD operations using PHP & MySQL
+- 📌 Session-based authentication
+- 📌 Multi-page dashboard design
+- 📌 Client-side & server-side validation
+- 📌 Basic relational database design
 
 ---
 
-# 👨‍💻 Author
+# 👨‍💻 Authors & Collaborators
 
-**Aarya Dhungana**
-
-GitHub:  
-https://github.com/aarya25dh
+- **Aarya Dhungana**
+- **Barshika Shah**
+- **Renusha Titaju**
+- **Kiran Kumari Shah**
 
 ---
 
