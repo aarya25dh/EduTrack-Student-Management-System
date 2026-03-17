@@ -1,0 +1,757 @@
+/* EduTrack - Student Management System */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    background-color: #F8FAFC;
+    color: #111827;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+/* Header & Navbar */
+header {
+    background: #1E3A8A;
+    color: white;
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+}
+
+.nav-links a {
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.nav-links a:hover {
+    background: #3B82F6;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.btn-primary {
+    background: #1E3A8A;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #3B82F6;
+}
+
+.btn-secondary {
+    background: #3B82F6;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #2563EB;
+}
+
+.btn-success {
+    background: #10B981;
+    color: white;
+}
+
+.btn-danger {
+    background: #EF4444;
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #DC2626;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid #1E3A8A;
+    color: #1E3A8A;
+}
+
+.btn-outline:hover {
+    background: #1E3A8A;
+    color: white;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Cards */
+.card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* Forms */
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.6rem 1rem;
+    border: 1px solid #E5E7EB;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #3B82F6;
+}
+
+/* Index/Landing Page */
+.hero {
+    position: relative;
+    height: 70vh;
+    min-height: 400px;
+    color: white;
+    margin-bottom: 2rem;
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    inset: 0;
+}
+
+.hero-bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.hero-overlay {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(30,58,138,0.75), rgba(59,130,246,0.75));
+}
+
+.hero-inner {
+    max-width: 1200px;
+    width: 100%;
+    padding: 0 1.5rem;
+    text-align: center;
+}
+
+.hero-overlay h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero-overlay p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.hero-buttons .btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 1.1rem;
+    border: 2px solid white;
+    background: transparent;
+    color: white;
+}
+
+.hero-buttons .hero-btn:hover {
+    background: white;
+    color: #1E3A8A;
+}
+
+/* Features Section */
+.features {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.feature-card {
+    flex: 1 1 0;
+    min-width: 0;
+    text-align: center;
+    padding: 2rem;
+}
+
+.feature-card h3 {
+    color: #1E3A8A;
+    margin-bottom: 0.5rem;
+}
+
+/* Social media feature row (smaller cards) */
+.social-features {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.social-features .card {
+    flex: 1 1 0;
+    min-width: 0;
+    padding: 1.25rem;
+}
+
+/* Stats Section */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 3rem 2rem;
+}
+
+.stat-card {
+    text-align: center;
+    padding: 2rem;
+}
+
+.stat-card .number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1E3A8A;
+}
+
+.full-width-media {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    margin-bottom: 2rem;
+}
+
+.full-width-media iframe {
+    width: 100%;
+    height: 450px;
+    border: none;
+    display: block;
+}
+/* Footer */
+footer {
+    background: #1E3A8A;
+    color: white;
+    padding: 0.5rem 2rem;
+    margin-top: auto;
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+/* Simple layout helpers added for student-style pages */
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    background-color: #F8FAFC;
+    color: #111827;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main, .dashboard-layout, .auth-container, .page-content {
+    flex: 1;
+}
+
+.page-content {
+    max-width: 1200px;
+    margin: 1.5rem auto 0;
+    padding: 0 1.5rem;
+}
+
+.simple-stats-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.simple-box {
+    flex: 1 1 200px;
+    border: 1px solid #E5E7EB;
+    padding: 1rem;
+    background: #FFFFFF;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    margin-bottom: 1rem;
+}
+
+.simple-box h3 {
+    margin-bottom: 0.5rem;
+    color: #1E3A8A;
+}
+
+.simple-box p {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.simple-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.gender-row {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.3rem;
+}
+
+.gender-row label {
+    font-size: 0.95rem;
+}
+
+.notify-card {
+    padding: 0.8rem 1rem;
+    margin-bottom: 0.6rem;
+    border-left: 4px solid;
+    background: #F9FAFB;
+}
+
+.notify-card.success {
+    border-color: #10B981;
+    color: #065F46;
+}
+
+.notify-card.error {
+    border-color: #EF4444;
+    color: #7F1D1D;
+}
+
+.notify-card.info {
+    border-color: #3B82F6;
+    color: #1E3A8A;
+}
+
+/* Auth Pages */
+.auth-container {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 2rem;
+    min-height: 0;
+    overflow: auto;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 460px;
+    min-width: 280px;
+    margin: 1rem 0;
+}
+
+
+.auth-card h1 {
+    text-align: center;
+    color: #1E3A8A;
+    margin-bottom: 1.5rem;
+}
+
+.error-msg {
+    background: #FEE2E2;
+    color: #EF4444;
+    padding: 0.8rem;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+}
+
+.success-msg {
+    background: #D1FAE5;
+    color: #10B981;
+    padding: 0.8rem;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.radio-group {
+    display: flex;
+    gap: 5rem;
+    margin-top: 0.4rem;
+}
+
+.radio-group label {
+    display: flex;
+    align-items: center;
+    gap: 0.1rem;
+}
+
+.radio-group input[type="radio"] {
+    margin: 0;
+    vertical-align: middle;
+}
+
+.dashboard-layout {
+    display: flex;
+    flex: 1;
+    min-height: 0;
+    align-items: stretch;
+}
+
+.sidebar {
+    width: 250px;
+    background: #1E3A8A;
+    color: white;
+    padding: 1.25rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.sidebar-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.sidebar-nav li {
+    width: 100%;
+}
+
+.sidebar-nav a {
+    display: block;
+    padding: 0.85rem 1.2rem;
+    color: white;
+    transition: background 0.3s ease;
+    border-radius: 0;
+}
+
+.sidebar-nav a:hover {
+    background: #3B82F6;
+}
+
+.main-content {
+    flex: 1;
+    padding: 1.5rem;
+    min-height: 0;
+    overflow: auto;
+}
+
+.dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.dash-card {
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.dash-card h3 {
+    font-size: 2rem;
+    color: #1E3A8A;
+}
+
+.action-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+/* Table */
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    table-layout: fixed;
+}
+
+thead th, tbody td { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+@media (max-width: 1200px) {
+    .table-container table {
+        table-layout: auto;
+    }
+}
+
+th, td {
+    padding: 1rem;
+    text-align: left;
+}
+
+th {
+    background: #1E3A8A;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background: #F8FAFC;
+}
+
+tr:hover {
+    background: #F1F5F9;
+}
+
+.table-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.table-actions .btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+}
+
+/* Search Form */
+.search-form {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.search-form input {
+    flex: 1;
+    padding: 0.6rem 1rem;
+    border: 1px solid #E5E7EB;
+    border-radius: 6px;
+}
+
+.search-form button {
+    padding: 0.6rem 1.2rem;
+}
+
+/* Profile Page */
+.profile-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.profile-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: #1E3A8A;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    margin: 0 auto 1rem;
+}
+
+.profile-info {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* Notifications */
+.notification-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.notification-card {
+    padding: 1rem 1.5rem;
+    border-left: 4px solid #3B82F6;
+}
+
+.notification-card.success {
+    border-left-color: #10B981;
+}
+
+.notification-card.warning {
+    border-left-color: #EF4444;
+}
+
+/* Hamburger for mobile */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .features, .social-features, .media-grid {
+        flex-direction: column;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-layout {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+
+    .sidebar-nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    table {
+        font-size: 0.9rem;
+    }
+
+    th, td {
+        padding: 0.6rem;
+    }
+
+    .search-form {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .features,
+    .social-features {
+        flex-direction: column;
+    }
+
+    .auth-container,
+    .dashboard-layout,
+    .main-content {
+        padding: 0 1rem;
+    }
+
+    .card,
+    .table-container,
+    .auth-card {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea,
+    .search-form input {
+        width: 100%;
+    }
+
+    .radio-group {
+        flex-wrap: wrap;
+        gap: 0.4rem;
+    }
+
+    .radio-group label {
+        width: auto;
+    }
+}

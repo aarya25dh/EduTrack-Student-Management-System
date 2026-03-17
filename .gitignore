@@ -1,0 +1,46 @@
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+# Composer (if you add it later)
+vendor/
+composer.lock
+# Node (if you ever add tooling)
+node_modules/
+npm-debug.log*
+yarn-error.log*
+pnpm-lock.yaml
+package-lock.json
+# Environment / secrets
+.env
+.env.local
+.env.*.local
+# IDE / Editor settings
+.vscode/
+.idea/
+*.iml
+# PHPStorm / JetBrains
+.phpstorm.meta.php
+# Logs & cache
+*.log
+logs/
+cache/
+tmp/
+temp/
+# PHPUnit / coverage
+phpunit.xml
+phpunit.xml.dist
+coverage/
+.clover
+.phpunit.result.cache
+# Mac-specific backups
+*.swp
+*~
+*.orig
+# Cursor / VSCode artifacts
+.cursor/
+.history/
