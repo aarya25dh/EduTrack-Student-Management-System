@@ -50,7 +50,7 @@ if (!$user) {
 
             <div class="card profile-info">
                 <div class="profile-header">
-                    <div class="profile-photo"><img src="profile.jpg" alt="Profile Photo" style="width: 100%; height: 100%; object-fit: cover;"></div>
+                    <div class="profile-photo"><img src="profile11.jpg" alt="Profile Photo" style="width: 100%; height: 100%; object-fit: cover;"></div>
                     <h2><?php echo htmlspecialchars($user['fullname']); ?></h2>
                 </div>
                 <div style="margin-top: 1.5rem;">
