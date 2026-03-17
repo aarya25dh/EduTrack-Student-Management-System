@@ -40,15 +40,19 @@ $students = [
 
 ];
 
-$stmt = mysqli_prepare(
-    $conn,
-    "INSERT INTO students (student_id, name, age, gender, address, email, phone, course, semester)
-     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"
-);
-
 foreach ($students as $s) {
-    mysqli_stmt_bind_param($stmt, "ssissssss", $s[0], $s[1], $s[2], $s[3], $s[4], $s[5], $s[6], $s[7], $s[8]);
-    mysqli_stmt_execute($stmt);
+    $student_id = mysqli_real_escape_string($conn, $s[0]);
+    $name = mysqli_real_escape_string($conn, $s[1]);
+    $age = (int)$s[2];
+    $gender = mysqli_real_escape_string($conn, $s[3]);
+    $address = mysqli_real_escape_string($conn, $s[4]);
+    $email = mysqli_real_escape_string($conn, $s[5]);
+    $phone = mysqli_real_escape_string($conn, $s[6]);
+    $course = mysqli_real_escape_string($conn, $s[7]);
+    $semester = mysqli_real_escape_string($conn, $s[8]);
+
+    $sql = "INSERT INTO students (student_id, name, age, gender, address, email, phone, course, semester) VALUES ('$student_id', '$name', $age, '$gender', '$address', '$email', '$phone', '$course', '$semester')";
+    mysqli_query($conn, $sql);
 }
 
 echo "Seed complete.\n";

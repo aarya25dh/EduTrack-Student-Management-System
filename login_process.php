@@ -11,10 +11,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    $stmt = mysqli_prepare($conn, "SELECT id, username, password, fullname FROM users WHERE username = ?");
-    mysqli_stmt_bind_param($stmt, "s", $username);
-    mysqli_stmt_execute($stmt);
-    $result = mysqli_stmt_get_result($stmt);
+    $username = mysqli_real_escape_string($conn, $username);
+    $sql = "SELECT id, username, password, fullname FROM users WHERE username = '$username' LIMIT 1";
+    $result = mysqli_query($conn, $sql);
 
     if ($row = mysqli_fetch_assoc($result)) {
         if (password_verify($password, $row['password'])) {

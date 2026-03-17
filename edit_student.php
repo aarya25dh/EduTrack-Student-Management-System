@@ -2,7 +2,7 @@
 require_once 'auth_check.php';
 require_once 'db_connect.php';
 
-$id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
+$id = isset($_POST['id']) ? (int)$_POST['id'] : 0;
 if ($id <= 0) {
     header("Location: students.php");
     exit;
@@ -44,7 +44,6 @@ if (!$student) {
             <ul class="sidebar-nav">
                 <li><a href="dashboard.php">Home</a></li>
                 <li><a href="students.php">Student Details</a></li>
-                <li><a href="notifications.php">Notifications</a></li>
                 <li><a href="profile.php">Profile</a></li>
                 <li><a href="logout.php">Logout</a></li>
             </ul>

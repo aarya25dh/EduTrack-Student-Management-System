@@ -39,7 +39,6 @@ if (!$user) {
             <ul class="sidebar-nav">
                 <li><a href="dashboard.php">Home</a></li>
                 <li><a href="students.php">Student Details</a></li>
-                <li><a href="notifications.php">Notifications</a></li>
                 <li><a href="profile.php">Profile</a></li>
                 <li><a href="logout.php">Logout</a></li>
             </ul>

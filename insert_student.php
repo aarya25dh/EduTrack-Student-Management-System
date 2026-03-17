@@ -34,24 +34,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Check duplicate student_id (roll number must be unique)
-    $check_id = mysqli_prepare($conn, "SELECT id FROM students WHERE student_id = ?");
-    mysqli_stmt_bind_param($check_id, "s", $student_id);
-    mysqli_stmt_execute($check_id);
-    $check_result = mysqli_stmt_get_result($check_id);
+    $student_id_safe = mysqli_real_escape_string($conn, $student_id);
+    $sql_check = "SELECT id FROM students WHERE student_id = '$student_id_safe'";
+    $check_result = mysqli_query($conn, $sql_check);
 
     if (mysqli_num_rows($check_result) > 0) {
         header("Location: add_student.php?error=" . urlencode("Student ID already exists"));
         exit;
     }
 
-    $stmt = mysqli_prepare($conn, "INSERT INTO students (student_id, name, age, gender, address, email, phone, course, semester) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    mysqli_stmt_bind_param($stmt, "ssissssss", $student_id, $name, $age, $gender, $address, $email, $phone, $course, $semester);
+    $student_id_safe = mysqli_real_escape_string($conn, $student_id);
+    $name_safe = mysqli_real_escape_string($conn, $name);
+    $gender_safe = mysqli_real_escape_string($conn, $gender);
+    $address_safe = mysqli_real_escape_string($conn, $address);
+    $email_safe = mysqli_real_escape_string($conn, $email);
+    $phone_safe = mysqli_real_escape_string($conn, $phone);
+    $course_safe = mysqli_real_escape_string($conn, $course);
+    $semester_safe = mysqli_real_escape_string($conn, $semester);
 
-    if (mysqli_stmt_execute($stmt)) {
+    $sql = "INSERT INTO students (student_id, name, age, gender, address, email, phone, course, semester) VALUES ('$student_id_safe', '$name_safe', $age, '$gender_safe', '$address_safe', '$email_safe', '$phone_safe', '$course_safe', '$semester_safe')";
+
+    if (mysqli_query($conn, $sql)) {
         $_SESSION['message'] = "Student added successfully";
         header("Location: students.php");
     } else {
-        header("Location: add_student.php?error=Student ID may already exist");
+        header("Location: add_student.php?error=Student add failed");
     }
     exit;
 } else {

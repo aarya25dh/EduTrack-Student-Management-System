@@ -35,20 +35,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Check duplicate student_id excluding current record
-    $check_id = mysqli_prepare($conn, "SELECT id FROM students WHERE student_id = ? AND id <> ?");
-    mysqli_stmt_bind_param($check_id, "si", $student_id, $id);
-    mysqli_stmt_execute($check_id);
-    $check_result = mysqli_stmt_get_result($check_id);
+    $student_id_safe = mysqli_real_escape_string($conn, $student_id);
+    $sql_check = "SELECT id FROM students WHERE student_id = '$student_id_safe' AND id <> $id";
+    $check_result = mysqli_query($conn, $sql_check);
 
     if (mysqli_num_rows($check_result) > 0) {
         header("Location: edit_student.php?id={$id}&error=" . urlencode("Student ID already exists"));
         exit;
     }
 
-    $stmt = mysqli_prepare($conn, "UPDATE students SET student_id=?, name=?, age=?, gender=?, address=?, email=?, phone=?, course=?, semester=? WHERE id=?");
-    mysqli_stmt_bind_param($stmt, "ssissssssi", $student_id, $name, $age, $gender, $address, $email, $phone, $course, $semester, $id);
+    $name_safe = mysqli_real_escape_string($conn, $name);
+    $gender_safe = mysqli_real_escape_string($conn, $gender);
+    $address_safe = mysqli_real_escape_string($conn, $address);
+    $email_safe = mysqli_real_escape_string($conn, $email);
+    $phone_safe = mysqli_real_escape_string($conn, $phone);
+    $course_safe = mysqli_real_escape_string($conn, $course);
+    $semester_safe = mysqli_real_escape_string($conn, $semester);
 
-    if (mysqli_stmt_execute($stmt)) {
+    $sql = "UPDATE students SET student_id='$student_id_safe', name='$name_safe', age=$age, gender='$gender_safe', address='$address_safe', email='$email_safe', phone='$phone_safe', course='$course_safe', semester='$semester_safe' WHERE id=$id";
+
+    if (mysqli_query($conn, $sql)) {
         $_SESSION['message'] = "Student record updated";
         header("Location: students.php");
     } else {

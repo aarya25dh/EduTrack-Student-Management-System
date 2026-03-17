@@ -2,7 +2,7 @@
 require_once 'auth_check.php';
 require_once 'db_connect.php';
 
-$search = isset($_GET['search']) ? trim($_GET['search']) : '';
+$search = isset($_POST['search']) ? trim($_POST['search']) : '';
 $where = "";
 if (!empty($search)) {
     $safe_search = mysqli_real_escape_string($conn, $search);
@@ -40,7 +40,6 @@ $result = mysqli_query($conn, $query);
             <ul class="sidebar-nav">
                 <li><a href="dashboard.php">Home</a></li>
                 <li><a href="students.php">Student Details</a></li>
-                <li><a href="notifications.php">Notifications</a></li>
                 <li><a href="profile.php">Profile</a></li>
                 <li><a href="logout.php">Logout</a></li>
             </ul>
@@ -55,7 +54,7 @@ $result = mysqli_query($conn, $query);
 
             <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem;">
                 <a href="add_student.php" class="btn btn-primary">Add Student</a>
-                <form action="students.php" method="GET" class="search-form">
+                <form action="students.php" method="POST" class="search-form">
                     <input type="text" name="search" placeholder="Search students..." value="<?php echo htmlspecialchars($search); ?>">
                     <button type="submit" class="btn btn-secondary">Search</button>
                 </form>
@@ -91,8 +90,18 @@ $result = mysqli_query($conn, $query);
                                     <td><?php echo htmlspecialchars($row['phone']); ?></td>
                                     <td><?php echo htmlspecialchars($row['course']); ?></td>
                                     <td><?php echo htmlspecialchars($row['semester']); ?></td>
-                                    <td><a href="edit_student.php?id=<?php echo $row['id']; ?>" class="btn btn-secondary">Edit</a></td>
-                                    <td><a href="delete_student.php?id=<?php echo $row['id']; ?>" class="btn btn-danger">Delete</a></td>
+                                    <td>
+                                        <form action="edit_student.php" method="POST" style="display:inline;">
+                                            <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+                                            <button type="submit" class="btn btn-secondary">Edit</button>
+                                        </form>
+                                    </td>
+                                    <td>
+                                        <form action="delete_student.php" method="POST" style="display:inline;" onsubmit="return confirm('Delete this student?');">
+                                            <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                        </form>
+                                    </td>
                                 </tr>
                             <?php endwhile; ?>
                         <?php else: ?>

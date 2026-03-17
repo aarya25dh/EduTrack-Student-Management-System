@@ -68,21 +68,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    $check = mysqli_prepare($conn, "SELECT id FROM users WHERE username = ? OR email = ?");
-    mysqli_stmt_bind_param($check, "ss", $username, $email);
-    mysqli_stmt_execute($check);
-    $result = mysqli_stmt_get_result($check);
+    $username_safe = mysqli_real_escape_string($conn, $username);
+    $email_safe = mysqli_real_escape_string($conn, $email);
+    $fullname_safe = mysqli_real_escape_string($conn, $fullname);
+    $phone_safe = mysqli_real_escape_string($conn, $phone);
+    $address_safe = mysqli_real_escape_string($conn, $address);
+    $gender_safe = mysqli_real_escape_string($conn, $gender);
+    $dob_safe = mysqli_real_escape_string($conn, $dob);
 
+    $check_sql = "SELECT id FROM users WHERE username = '$username_safe' OR email = '$email_safe'";
+    $result = mysqli_query($conn, $check_sql);
     if (mysqli_num_rows($result) > 0) {
         header("Location: register.php?error=Username or email already exists");
         exit;
     }
 
     $hashed = password_hash($password, PASSWORD_DEFAULT);
-    $stmt = mysqli_prepare($conn, "INSERT INTO users (username, email, password, fullname, phone, address, gender, dob) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-    mysqli_stmt_bind_param($stmt, "ssssssss", $username, $email, $hashed, $fullname, $phone, $address, $gender, $dob);
-
-    if (mysqli_stmt_execute($stmt)) {
+    $sql = "INSERT INTO users (username, email, password, fullname, phone, address, gender, dob) VALUES ('$username_safe', '$email_safe', '$hashed', '$fullname_safe', '$phone_safe', '$address_safe', '$gender_safe', '$dob_safe')";
+    if (mysqli_query($conn, $sql)) {
         header("Location: login.php?success=Registration successful. Please login.");
         exit;
     } else {
