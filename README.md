@@ -8,7 +8,7 @@ This project demonstrates fundamental **full-stack web development concepts**, i
 
 # 🌐 Live Demo
 
-🔗 **Live Website**  
+🔗 **Live Website (FrontEnd Only)**  
 https://aarya25dh.github.io/EduTrack-Student-Management-System
 
 📂 **GitHub Repository**  
