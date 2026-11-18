@@ -6,7 +6,7 @@ This project demonstrates fundamental **full-stack web development concepts**, i
 
 ---
 
-# Live Demo
+## Live Demo
 
 **Live Website (FrontEnd Only)**  
 https://aarya25dh.github.io/EduTrack-Student-Management-System
@@ -16,7 +16,7 @@ https://github.com/aarya25dh/EduTrack-Student-Management-System
 
 ---
 
-# Features
+## Features
 
 - User Registration & Login
 - Dashboard Interface
@@ -30,22 +30,22 @@ https://github.com/aarya25dh/EduTrack-Student-Management-System
 
 ---
 
-# Tech Stack
+## Tech Stack
 
-## Frontend
+### Frontend
 - HTML
 - CSS
 - Google Fonts *(Poppins)*
 
-## Backend
+### Backend
 - PHP
 
-## Database
+### Database
 - MySQL
 
 ---
 
-# Project Structure
+## Project Structure
 
 ```
 EduTrack-Student-Management-System
@@ -85,40 +85,37 @@ EduTrack-Student-Management-System
 
 ---
 
-# Installation
+## Installation
 
-## Clone the Repository
+### Clone the Repository
 
 ```bash
 git clone https://github.com/aarya25dh/EduTrack-Student-Management-System.git
 ```
-
 ---
 
-## Open in Local Server
+### Open in Local Server
 
 Use **XAMPP / MAMP / WAMP** and place the project inside the **htdocs** folder.
 
 ---
 
-## Create Database
+### Create Database
 
 Create a database called:
 
 ```
 edutrack_db
 ```
-
 ---
 
-## Import Database
+### Import Database
 
 Import the provided SQL file:
 
 ```
 setup_database.sql
 ```
-
 ---
 
 ## Run the Project
@@ -128,10 +125,9 @@ Open in your browser:
 ```
 http://localhost/EduTrack-Student-Management-System
 ```
-
 ---
 
-# Learning Objectives
+## Learning Objectives
 
 This project demonstrates:
 
@@ -143,7 +139,7 @@ This project demonstrates:
 
 ---
 
-# Authors & Collaborators
+## Authors & Collaborators
 
 - **Aarya Dhungana**
 - **Barshika Shah**
