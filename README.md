@@ -118,7 +118,7 @@ setup_database.sql
 ```
 ---
 
-## Run the Project
+### Run the Project
 
 Open in your browser:
 
